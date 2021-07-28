@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) {
         Cliente cliente = new Cliente ("Carlos");
         Produto produto = new Produto ("Arroz",BigDecimal.valueOf(10.99));
-        Produto produto2 = new Produto ("Golf",BigDecimal.valueOf(2000.00));
+        Produto produto2 = new Produto ("Golf",BigDecimal.valueOf(20000.00));
         Compra compra = cliente.comprar(produto, 2);
         compra.addCompra(produto, 3);
         compra.addCompra(produto2, 2);

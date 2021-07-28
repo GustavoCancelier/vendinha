@@ -28,11 +28,11 @@ public class Compra {
 	public Cliente getCliente() {
 		return cliente;
 	}
-
+	
 	public List<ItemCompra> getItens() {
 		return itens;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
