@@ -9,9 +9,8 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public Compra Comprar(Produto produto, Integer quantidade) {
+	public Compra comprar(Produto produto, Integer quantidade) {
 		Compra compra = new Compra(produto, this, quantidade);
-		System.out.println(compra);
 		return compra;
 	}
 	

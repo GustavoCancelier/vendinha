@@ -12,8 +12,8 @@ public class ClienteTest {
 	public void ClienteResultadoTest() {
 		Cliente cliente = new Cliente ("carlos");
 		Produto produto = new Produto ("Arroz", BigDecimal.valueOf(10.99));
-		cliente.Comprar(produto, 2);
+		cliente.comprar(produto, 2);
 		
-		//assertEquals(21.98, cliente.Comprar(produto,2));
+		//assertEquals(21.98, cliente.comprar());
 	}
 }
