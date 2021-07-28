@@ -1,11 +1,14 @@
 package br.com.gustavo.vendinha;
 
-//import java.math.BigDecimal;
+import java.util.SplittableRandom;
+
 
 public class Cliente {
 	private String nome;
+	private Long id;
 	
 	public Cliente (String nome) {
+		this.id = new SplittableRandom().nextLong(1, Long.MAX_VALUE);
 		this.nome = nome;
 	}
 	
@@ -17,4 +20,11 @@ public class Cliente {
 	public String getNome() {
 		return nome;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	
+	
 }
