@@ -11,7 +11,6 @@ public class App {
         Produto produto = new Produto ("Arroz",BigDecimal.valueOf(10.99));
         Produto produto2 = new Produto ("Golf",BigDecimal.valueOf(20000.00));
         Compra compra = cliente.comprar(produto, 1);
-        //ItemCompra iCompra = new ItemCompra(produto, 1);
         compra.addCompra(produto2, 2);
         System.out.println("Nome CLiente: " + compra.getCliente().getNome());
         System.out.println("Id Cliente: " + compra.getCliente().getId());
