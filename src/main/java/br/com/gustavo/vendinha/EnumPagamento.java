@@ -1,6 +1,5 @@
 package br.com.gustavo.vendinha;
 
-public class AppTest {
+public enum EnumPagamento {
 	
- 
 }

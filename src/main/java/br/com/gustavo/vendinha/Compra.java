@@ -8,7 +8,6 @@ import java.util.SplittableRandom;
 public class Compra {
 	private Long id;
 	private Cliente cliente;
-	private BigDecimal total;
 	private List<ItemCompra> itens;
 	 
 	public Compra (Produto produto, Cliente cliente, Integer quantidade) {
@@ -18,12 +17,8 @@ public class Compra {
 		this.addCompra(produto, quantidade);
 	}
 	
-	public BigDecimal getTotal() {
-		return total;
-	}
-	public List<ItemCompra> addCompra(Produto produto, Integer quantidade) {
+	public void addCompra(Produto produto, Integer quantidade) {
 		this.itens.add(new ItemCompra(produto, quantidade));
-		return itens;
 	}
 	public Cliente getCliente() {
 		return cliente;
@@ -35,5 +30,13 @@ public class Compra {
 	
 	public Long getId() {
 		return id;
+	}
+
+	public BigDecimal getTotal() {
+		BigDecimal soma = BigDecimal.ZERO;
+		for (ItemCompra i : itens) {
+			soma = soma.add(i.getTotal());
+		}
+		return soma;
 	}
 }
