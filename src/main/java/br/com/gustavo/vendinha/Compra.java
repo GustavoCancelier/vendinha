@@ -27,15 +27,29 @@ public class Compra {
 		this.valorPago = BigDecimal.valueOf(0);
 		this.troco = BigDecimal.valueOf(0);
 	}
-	public BigDecimal pagar (BigDecimal valorPago) {
+	public BigDecimal pagar (BigDecimal dinheiro) {
 		if (valorPago.compareTo(getTotal()) < 0) {
-			this.dataCancelamento = LocalDateTime.now();
-			this.statusPagamento = EnumPagamento.CANCELADO;
-			return troco;
+			cancelar();
+		} else if (getStatusPagamento().equals(EnumPagamento.PAGO)) {
+			throw new RuntimeException ("Erro! A compra ja foi paga");
 		}
 		this.dataPagamento = LocalDateTime.now();
 		this.statusPagamento = EnumPagamento.PAGO;
-		return troco = valorPago.subtract(getTotal());
+		this.valorPago = dinheiro;
+		return troco = dinheiro.subtract(getTotal());
+	}
+	
+	public BigDecimal cancelar() {
+		if (getStatusPagamento().equals(EnumPagamento.CANCELADO)) {
+			throw new RuntimeException ("Erro! A compra ja foi cancelada");
+		}
+		
+		if (getStatusPagamento().equals(EnumPagamento.PAGO)) {
+			this.statusPagamento = EnumPagamento.CANCELADO;
+			this.dataCancelamento = LocalDateTime.now();
+		}
+		
+		return getValorPago();
 	}
 	
 	public void addCompra(Produto produto, Integer quantidade) {

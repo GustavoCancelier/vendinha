@@ -14,12 +14,18 @@ public class App {
         compra.addCompra(produto2, 2);
         System.out.println("Nome CLiente: " + compra.getCliente().getNome());
         System.out.println("Id Cliente: " + compra.getCliente().getId());
+       
         for (ItemCompra i : compra.getItens()) {
 			System.out.println("Produto: " + i.getProduto().getNomeProduto());
 			System.out.println("Valor Un: " + i.getProduto().getValorProduto());
 			System.out.println("Quantidade: " + i.getQtd());
 			System.out.println("Valor: " + i.getTotal());
 		}
+        
         System.out.println(compra.getTotal());
+        System.out.println(compra.pagar(BigDecimal.valueOf(900000)));
+        System.out.println(compra.pagar(BigDecimal.valueOf(50000)));
+        System.out.println(compra.getStatusPagamento());
+        
     }
 }
